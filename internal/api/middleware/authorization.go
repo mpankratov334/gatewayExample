@@ -36,11 +36,6 @@ func Authorization(key string) fiber.Handler {
 		)
 
 		if err != nil || !token.Valid {
-			fmt.Println(token.Raw)
-			fmt.Println(token.Header)
-			fmt.Println(token.Claims)
-			fmt.Println(token.Signature)
-			fmt.Println(err)
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 				"error":   "Unauthorized",
 				"message": "token is not valid",
